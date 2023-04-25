@@ -1,40 +1,42 @@
-function Hero(image, top, right, bottom, left, size) {
-    this.image = image;
-    this.top = top;
-    this.right = right;
-    this.bottom = bottom;
-    this.left = left;
-    this.size = size;
-
-    this.getHeroElement = function () {
+Class Hero {
+    constructor(image, top, right, bottom, left, size) {
+        this.image = image;
+        this.top = top;
+        this.right = right;
+        this.bottom = bottom;
+        this.left = left;
+        this.size = size;
+    }
+    
+    getHeroElement = function () {
         return '<img width="' + this.size + '"' +
             ' height="' + this.size + '"' +
             ' src="' + this.image + '"' +
             ' style="top: ' + this.top + 'px; left:' + this.left + 'px;position:absolute;" />';
     }
 
-    this.moveRight = function () {
+    moveRight = function () {
         this.left++;
         this.right--;
     }
 
-    this.moveDown = function () {
+    moveDown = function () {
         this.top++;
         this.bottom--;
     }
 
-    this.moveLeft = function () {
+    moveLeft = function () {
         this.left--;
         this.right++;
     }
 
-    this.moveTop = function () {
+    moveTop = function () {
         this.top--;
         this.bottom++;
     }
 }
 
-var hero = new Hero('naruto.png', 0, window.innerWidth - 200, window.innerHeight - 200, 0, 200);
+let hero = new Hero('naruto.png', 0, window.innerWidth - 200, window.innerHeight - 200, 0, 200);
 
 function start() {
     if ((hero.left < window.innerWidth - hero.size) && (hero.top == 0)) {
